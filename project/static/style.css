@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --primary: #d58aff;
+    --primary-light: #dad1cb;
+    --primary-dark: #7c746f;
+    --dark1: #121212;
+    --dark2: #2d2d2d;
+    --light1: #f0f0f0;
+    --light2: #e2e2e2;
+    --secondary: #ffc9b2;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--dark2);
+    font-family: "Ubuntu Sans", sans-serif;
+    transition-duration: 0.2s;
+}
+
+body::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: url("/static/images/background.jpg") no-repeat fixed top right/150%;
+}
+
+body {
+    background-color: var(--dark1);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h1,
+p,
+h3,
+textarea {
+    filter: opacity(1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    gap: 60px;
+}
+
+main .left {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+main .content {
+    position: sticky;
+    top: 20px;
+}
+
+.content * {
+    color: var(--dark2);
+}
+
+.content h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+#control,
+.content h3 {
+    margin-bottom: 1rem;
+}
+
+.content p {
+    font-size: 1.1rem;
+}
+
+#control button {
+    background-color: var(--primary);
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+}
+
+#control button:hover {
+    color: var(--dark2);
+    background-color: var(--secondary);
+}
+
+
+h1 {
+    font-size: 3rem;
+}
+
+main>h1 {
+    color: white;
+}
+
+#test h3 {
+    font-weight: 400;
+    color: var(--dark1);
+    font-size: 1.2rem;
+}
+
+#test button:disabled {
+    color: grey;
+    background-color: var(--light2);
+    cursor: not-allowed;
+}
+
+#begin-container {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 750px;
+}
+
+.submit-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container form > div,
+.content,
+.submit-btn,
+#control button:hover,
+#begin-container {
+    box-shadow: 0 0 10px #00000034;
+}
+
+.container form > div,
+.content,
+#blanks-form,
+#begin-container {
+    width: 100%;
+    backdrop-filter: blur(12px);
+    padding: 2rem;
+    background-color: #eeeeee6a;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #dadada2b;
+}
+
+#blanks-form{
+    gap: 15px !important;
+}
+
+#blanks-form > div{
+    backdrop-filter: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 !important;
+}
+
+#blanks-form button[type="submit"]{
+    margin: 0;
+}
+
+input.blanks{
+    outline: none;
+    border: none;
+    font-size: 1.1rem;
+    background-color: #eeeeee6a;
+    padding: 2px 10px;
+    border-bottom: 1px solid transparent;
+}
+
+input.blanks:focus{
+    background-color: var(--light1);
+    border-bottom-color: var(--dark2);
+}
+
+#mcq-container h3,
+#question-container h3 {
+    background: linear-gradient(145deg, var(--primary), var(--secondary));
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+#mcq-container ul {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#mcq-container li {
+    list-style: none;
+    display: flex;
+    width: calc(50% - 3px);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]+label,
+textarea {
+    padding: 10px 20px;
+    width: 100%;
+    background-color: var(--light1);
+    border: 1px solid var(--light1);
+    color: var(--dark2);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-style: normal;
+    outline: none;
+    color: black;
+    user-select: none;
+}
+
+input[type="radio"]+label{
+    border: none;
+}
+
+input[type="radio"]+label:hover,
+textarea:focus {
+    background-color: white;
+}
+
+textarea {
+    padding: 10px;
+    height: 12rem;
+}
+
+textarea:focus {
+    border-color: var(--dark1);
+}
+
+input[type="radio"]:checked+label:hover {
+    background-color: var(--secondary);
+    color: var(--dark1);
+}
+
+input[type="radio"]:checked+label {
+    background-color: var(--primary);
+    color: white;
+    font-style: italic;
+}
+
+.submit-btn {
+    padding: 12px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-top: -15px;
+    background-color: var(--primary);
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: white;
+    color: var(--dark1);
+}
+
+
+.notification {
+    z-index: 999;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ffffff77;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    filter: opacity(0);
+    display: none;
+}
+.close-btn {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--dark1);
+    cursor: pointer;
+}
+
+.close-btn:hover{
+    color: var(--dark2);
+}
+
+.correct {
+    background-color: lightgreen !important;
+    color: black !important;
+}
+.incorrect {
+    color: white !important;
+    background-color: lightcoral !important;
+}
+
+.submitted{
+    background: transparent !important;
+    padding: 15px 0 !important;
+}

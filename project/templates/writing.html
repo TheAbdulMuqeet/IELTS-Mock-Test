@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Writing</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/writing.css" />
+  </head>
+
+  <body>
+    {% include 'nav.html' %}
+    <main>
+      <div id="notification" class="notification">
+        <p id="notification-message"></p>
+        <button class="close-btn">x</button>
+      </div>
+      <h1>Writing Quiz</h1>
+      <div class="left" id="writing">
+        <div class="content">
+          <h3>Write a passage</h3>
+          <p>
+            <strong>Topic:</strong>
+            {{ topic }}
+          </p>
+          <form id="writing-form">
+            <textarea
+              name="write-area"
+              id="write-area"
+              placeholder="Enter your passage here"
+              required
+            ></textarea>
+            <button type="submit" class="submit-btn" id="w-submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script>
+      document
+        .getElementById("writing-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          const formData = new FormData(this);
+          const writeArea = formData.get("write-area");
+
+          fetch("/submit-passage", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams(formData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const notification = document.getElementById("notification");
+              const notificationMessage = document.getElementById(
+                "notification-message"
+              );
+              if (data.status === "ok") {
+                notificationMessage.innerHTML = data.message;
+              } else {
+                notificationMessage.innerHTML = "Error: " + data.message;
+              }
+              notification.style.filter = "opacity(1)"
+              notification.style.display = "flex";
+              document.getElementById("write-area").value = '';
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+
+      document.querySelector(".close-btn").addEventListener("click", () => {
+        notification.style.filter = "opacity(0)"
+        document.getElementById("notification").style.display = "none";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Listening</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <style>
+        #listening .container {
+            width: 100% !important;
+            max-width: 1100px;
+        }
+        #listening #test {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'nav.html' %}
+    <main id="listening">
+        <div id="notification" class="notification">
+            <p id="notification-message"></p>
+            <button class="close-btn">x</button>
+        </div>
+        <h1>Listening Quiz</h1>
+        <div class="left">
+            <div>
+                <div class="content">
+                    <h3>Audio Listening</h3>
+                    <div id="control">
+                        <button id="getMCQs">MCQs</button>
+                        <button id="getBlanks" onclick=getB()>Blank</button>
+                        <!-- <button id="getQuestions">Questions</button> -->
+                    </div>
+                    <audio id="audioPlayer" controls>
+                        <source src="/static/recording.mp3" type="audio/wav">
+                    </audio>
+                </div>
+            </div>
+            <div id="test">
+                <div class="container" id="begin-container">
+                    <h3>Test Area</h3>
+                </div>
+                <div class="container" id="mcq-container"></div>
+                <div class="container" id="blanks-container"></div>
+                <!-- <div class="container" id="question-container"></div> -->
+            </div>
+        </div>
+    </main>
+    <script src="/static/reading.js"></script>
+    <script>
+        function playAudio() {
+            var audio = document.getElementById('audioPlayer');
+            audio.play();
+        }
+    </script>
+</body>
+
+</html>

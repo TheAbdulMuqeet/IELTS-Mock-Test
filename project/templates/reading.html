@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reading</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body>
+    {% include 'nav.html' %}
+    <main>
+      <div id="notification" class="notification">
+        <p id="notification-message"></p>
+        <button class="close-btn">x</button>
+    </div>
+      <h1>Reading Quiz</h1>
+      <div class="left">
+        <div>
+          <div class="content">
+            <h3>Paragraph Reading</h3>
+            <div id="control">
+              <button id="getMCQs">MCQs</button>
+              <button id="getBlanks">Blank</button>
+              <!-- <button id="getQuestions">Questions</button> -->
+            </div>
+            <p>
+              {{ passage }}
+            </p>
+          </div>
+        </div>
+        <div id="test">
+          <div class="container" id="begin-container"><h3>Test Area</h3></div>
+          <div class="container" id="mcq-container"></div>
+          <div class="container" id="blanks-container"></div>
+          <!-- <div class="container" id="question-container"></div> -->
+        </div>
+      </div>
+    </main>
+    <script src="/static/reading.js"></script>
+  </body>
+</html>

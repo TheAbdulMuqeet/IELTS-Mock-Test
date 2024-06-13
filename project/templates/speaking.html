@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Speaking</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/writing.css" />
+    <style>
+      #start-recording,
+      #stop-recording {
+        width: 20px;
+        height: 20px;
+        background: none;
+        outline: none;
+        border: none;
+      }
+
+      #start-recording:hover,
+      #stop-recording:hover{
+        fill: white;
+      }
+
+      #recording{
+        display: flex;
+        gap: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% include 'nav.html' %}
+    <main>
+      <div id="notification" class="notification">
+        <p id="notification-message"></p>
+        <button class="close-btn">x</button>
+      </div>
+      <h1>Speaking Quiz</h1>
+      <div class="left" id="writing">
+        <div class="content">
+          <h3>Start recording</h3>
+          <p>
+            <strong>Topic:</strong>
+            {{ topic }}
+          </p>
+          <div id="recording">
+            <p id="write-area" ></p>
+          </div>
+          <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="audioFile" name="audio" accept="audio/wav">
+            <button type="submit">Upload and Convert</button>
+        </form>
+        </div>
+      </div>
+    </main>
+    <script src="/static/recorder.js"></script>
+    
+  </body>
+</html>

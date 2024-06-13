@@ -1,0 +1,23 @@
+#writing .content {
+    min-height: 60vh;
+}
+
+#writing > div{
+    width: 100%;
+}
+
+#write-area{
+    min-height: 15rem;
+}
+
+#writing-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#writing-form button{
+    width: 10%;
+    align-self: flex-end;
+    margin: 0;
+}
