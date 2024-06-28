@@ -225,7 +225,7 @@ class QuestionGenerator:
     
 
 class EssayGrader:
-    def __init__(self, json_path, hf_token='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', model_name='Kevintu/Engessay_grading_ML', tokenizer_name='KevSun/Engessay_grading_ML'):
+    def __init__(self, json_path, hf_token='HUGGINGFACE_TOKEN', model_name='Kevintu/Engessay_grading_ML', tokenizer_name='KevSun/Engessay_grading_ML'):
         self.json_path = json_path
         self.hf_token = hf_token
         self.model_name = model_name
